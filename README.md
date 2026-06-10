@@ -2,22 +2,22 @@
 
 ## Overview
 
-This capstone project benchmarks multiple Convolutional Neural Network (CNN) architectures for binary image classification using a Cats vs. Dogs dataset.
+This capstone project benchmarks multiple Convolutional Neural Network (CNN) architectures for binary image classification using a Cats vs. Dogs image dataset.
 
-The objective was to evaluate how a custom-built CNN compares against transfer learning architectures such as VGG16, ResNet50, and EfficientNetB0 in terms of classification performance, feature extraction quality, and model generalization.
+The study evaluates and compares a custom-built CNN against industry-standard transfer learning architectures, including VGG16, ResNet50, and EfficientNetB0. The objective is to analyze classification performance, feature extraction quality, model convergence behavior, and learned feature representations.
 
-This project demonstrates practical applications of deep learning, transfer learning, computer vision, model evaluation, and feature visualization techniques commonly used in industry.
+This project demonstrates practical applications of deep learning, computer vision, transfer learning, model benchmarking, and feature visualization techniques commonly used in real-world machine learning systems.
 
 ---
 
 ## Project Objectives
 
-- Build a custom CNN baseline model
-- Apply transfer learning using pretrained architectures
-- Compare model performance across multiple CNN architectures
-- Evaluate classification accuracy and loss metrics
-- Analyze feature representations using t-SNE visualization
-- Identify the best-performing model for pet image classification
+* Build and train a custom CNN architecture from scratch
+* Apply transfer learning using pretrained CNN models
+* Compare multiple CNN architectures using consistent evaluation metrics
+* Analyze model convergence and training behavior
+* Visualize learned feature spaces using t-SNE
+* Benchmark architecture performance for production-oriented decision making
 
 ---
 
@@ -28,96 +28,100 @@ The dataset consists of labeled images of cats and dogs.
 ### Dataset Validation Results
 
 | Category | Images |
-|-----------|---------|
-| Cats | 349 |
-| Dogs | 348 |
-| Total | 697 |
+| -------- | ------ |
+| Cats     | 349    |
+| Dogs     | 348    |
+| Total    | 697    |
 
 ### Dataset Split
 
 | Class | Train | Validation | Test | Total |
-|---------|---------|---------|---------|---------|
-| Cats | 236 | 60 | 53 | 349 |
-| Dogs | 236 | 59 | 53 | 348 |
+| ----- | ----- | ---------- | ---- | ----- |
+| Cats  | 236   | 60         | 53   | 349   |
+| Dogs  | 236   | 59         | 53   | 348   |
 
 ---
 
 ## Data Preparation
 
-Prior to training:
+Prior to model training:
 
-- Invalid images were identified and removed
-- Images were resized for CNN compatibility
-- Dataset integrity was verified
-- Training, validation, and test datasets were created
+* Invalid image files were identified and removed
+* Dataset integrity was verified
+* Images were standardized and resized
+* Train, validation, and test datasets were created
 
 ### Data Augmentation
 
-The following augmentation techniques were applied:
+To improve model generalization and reduce overfitting, the following augmentations were applied:
 
-- Random Rotation
-- Horizontal Flips
-- Zoom Transformations
-- Width Shifts
-- Height Shifts
-- Brightness Adjustments
-
-These transformations improve model robustness and reduce overfitting.
+* Rotation
+* Horizontal Flipping
+* Width Shifting
+* Height Shifting
+* Zoom Transformations
+* Brightness Variations
 
 ---
 
-## Models Evaluated
+## CNN Architectures Evaluated
 
 ### 1. Custom CNN
 
-A CNN architecture built from scratch consisting of:
+A baseline convolutional neural network built entirely from scratch.
 
-- Conv2D Layers
-- MaxPooling Layers
-- Dense Layers
-- Dropout Regularization
-- Softmax Output Layer
+Architecture includes:
 
-This model serves as the baseline benchmark.
+* Conv2D Layers
+* MaxPooling Layers
+* Dense Layers
+* Dropout Regularization
+* Softmax Classification Layer
+
+Purpose:
+
+* Establish baseline performance
+* Compare against transfer learning approaches
 
 ---
 
 ### 2. VGG16 Transfer Learning
 
-A pretrained VGG16 architecture trained on ImageNet and fine-tuned for binary classification.
+Pretrained on ImageNet.
 
-Benefits:
+Advantages:
 
-- Faster convergence
-- Strong feature extraction
-- Improved validation performance
+* Strong feature extraction capabilities
+* Faster convergence
+* Improved validation performance
 
 ---
 
 ### 3. ResNet50 Transfer Learning
 
-A deep residual network using skip connections to overcome vanishing gradient issues.
+Residual neural network architecture utilizing skip connections.
 
-Benefits:
+Advantages:
 
-- Deeper architecture
-- Strong representation learning
-- Advanced feature extraction
+* Improved gradient flow
+* Strong representation learning
+* Excellent feature extraction
 
 ---
 
 ### 4. EfficientNetB0 Transfer Learning
 
-An optimized CNN architecture balancing:
+EfficientNet balances:
 
-- Network Depth
-- Width
-- Image Resolution
+* Network Depth
+* Width
+* Resolution
 
-Benefits:
+Advantages:
 
-- Improved efficiency
-- High accuracy with lower computational requirements
+* Computational efficiency
+* High classification performance
+* Optimized parameter utilization
 
 ---
 
@@ -125,15 +129,16 @@ Benefits:
 
 Models were evaluated using:
 
-- Training Accuracy
-- Validation Accuracy
-- Training Loss
-- Validation Loss
-- Confusion Matrix
-- Classification Performance
-- Feature Sparsity
-- Activation Statistics
-- t-SNE Feature Visualization
+* Training Accuracy
+* Validation Accuracy
+* Training Loss
+* Validation Loss
+* Confusion Matrix
+* Weighted F1 Score
+* Parameter Counts
+* Feature Sparsity
+* Activation Statistics
+* t-SNE Feature Visualization
 
 ---
 
@@ -141,39 +146,40 @@ Models were evaluated using:
 
 ### Custom CNN
 
-The custom CNN successfully learned visual patterns distinguishing cats from dogs.
+The custom CNN successfully learned visual features capable of distinguishing cats from dogs.
 
 Key observations:
 
-- Stable convergence during training
-- Consistent reduction in loss
-- Good baseline performance
-- Demonstrated effective feature learning
+* Stable convergence
+* Consistent reduction in training loss
+* Effective baseline benchmark
+* Successful feature learning
 
 ---
 
 ### Transfer Learning Models
 
-Transfer learning architectures outperformed the baseline CNN.
+Transfer learning architectures demonstrated superior performance relative to the baseline CNN.
 
 Benefits observed:
 
-- Faster convergence
-- Higher validation accuracy
-- Better feature extraction
-- Improved generalization
+* Faster convergence
+* Improved validation performance
+* Enhanced feature extraction
+* Better generalization
 
 ---
 
 ### Feature Visualization Analysis
 
-t-SNE visualizations were generated to examine learned feature spaces.
+Feature embeddings extracted from trained models were visualized using t-SNE.
 
-Findings:
+Key findings:
 
-- Transfer learning models produced more structured feature representations.
-- ResNet50 generated stronger feature clustering.
-- Learned embeddings showed improved class separation compared with the baseline CNN.
+* Transfer learning models generated more structured feature representations.
+* ResNet50 produced stronger clustering behavior.
+* Feature separability improved compared to the baseline CNN.
+* Learned embeddings demonstrated meaningful class discrimination.
 
 ---
 
@@ -181,33 +187,63 @@ Findings:
 
 ### Dataset Validation
 
+Verifies successful image validation and dataset integrity.
+
 ![Dataset Validation](visuals/01_dataset_validation.png)
+
+---
 
 ### Data Augmentation Examples
 
-![Data Augmentation](visuals/02_data_augmentation_examples.png)
+Examples of augmented images used during training.
+
+![Data Augmentation Examples](visuals/02_data_augmentation_examples.png)
+
+---
 
 ### Simple CNN Training Results
 
+Training and validation accuracy progression for the baseline CNN architecture.
+
 ![Simple CNN Training Results](visuals/03_simple_cnn_training_results.png)
 
-### CNN Loss and Confusion Matrix
+---
 
-![CNN Loss and Confusion Matrix](visuals/04_simple_cnn_loss_and_confusion_matrix.png)
+### Simple CNN Loss and Confusion Matrix
 
-### Dataset Split Summary
+Training loss convergence and classification performance evaluation.
 
-![Dataset Split Summary](visuals/05_dataset_split_summary.png)
+![Simple CNN Loss and Confusion Matrix](visuals/04_simple_cnn_loss_and_confusion_matrix.png)
 
-### VGG16 Training Results
+---
+
+### Best Model Confusion Matrix
+
+Visualization of classification accuracy using predicted versus actual labels.
+
+![Best Model Confusion Matrix](visuals/04_confusion_matrix_best_model.png)
+
+---
+
+### VGG16 Transfer Learning Results
+
+Training performance of the VGG16 transfer learning architecture.
 
 ![VGG16 Training Results](visuals/06_vgg16_training_results.png)
 
-### CNN Feature Visualization
+---
 
-![CNN Feature Visualization](visuals/07_tsne_feature_visualization.png)
+### t-SNE Feature Visualization
+
+Visualization of learned feature embeddings from the CNN architecture.
+
+![t-SNE Feature Visualization](visuals/07_tsne_feature_visualization.png)
+
+---
 
 ### ResNet50 Feature Visualization
+
+Visualization of high-dimensional feature representations extracted from ResNet50.
 
 ![ResNet50 Feature Visualization](visuals/08_resnet50_tsne_feature_visualization.png)
 
@@ -215,16 +251,16 @@ Findings:
 
 ## Technologies Used
 
-- Python
-- TensorFlow
-- Keras
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- Scikit-Learn
-- Pillow
-- Jupyter Notebook
+* Python
+* TensorFlow
+* Keras
+* NumPy
+* Pandas
+* Matplotlib
+* Seaborn
+* Scikit-Learn
+* Pillow
+* Jupyter Notebook
 
 ---
 
@@ -242,7 +278,7 @@ CNN-Architecture-Benchmarking-for-Pet-Image-Classification/
 │   ├── 02_data_augmentation_examples.png
 │   ├── 03_simple_cnn_training_results.png
 │   ├── 04_simple_cnn_loss_and_confusion_matrix.png
-│   ├── 05_dataset_split_summary.png
+│   ├── 04_confusion_matrix_best_model.png
 │   ├── 06_vgg16_training_results.png
 │   ├── 07_tsne_feature_visualization.png
 │   └── 08_resnet50_tsne_feature_visualization.png
@@ -256,19 +292,35 @@ CNN-Architecture-Benchmarking-for-Pet-Image-Classification/
 
 ## Key Skills Demonstrated
 
-- Deep Learning
-- Computer Vision
-- Transfer Learning
-- TensorFlow
-- Keras
-- CNN Architecture Design
-- Model Benchmarking
-- Data Augmentation
-- Feature Engineering
-- Classification Analysis
-- Dimensionality Reduction
-- t-SNE Visualization
-- Machine Learning Evaluation
+* Deep Learning
+* Computer Vision
+* Convolutional Neural Networks (CNNs)
+* Transfer Learning
+* TensorFlow
+* Keras
+* Model Benchmarking
+* Feature Engineering
+* Data Augmentation
+* Feature Extraction
+* t-SNE Visualization
+* Classification Analysis
+* Machine Learning Evaluation
+* Model Performance Comparison
+
+---
+
+## Business Applications
+
+The techniques demonstrated in this project can be applied across numerous industries:
+
+* Medical Image Analysis
+* Manufacturing Quality Inspection
+* Autonomous Systems
+* Security and Surveillance
+* Retail Product Recognition
+* Agricultural Image Analysis
+* Wildlife Monitoring
+* Defect Detection Systems
 
 ---
 
@@ -285,3 +337,5 @@ Portfolio: https://dare215.github.io/DariousBrown-Portfolio/
 LinkedIn: https://www.linkedin.com/in/dariousbrown
 
 ---
+
+*This project demonstrates the implementation, evaluation, and benchmarking of modern convolutional neural network architectures for image classification, highlighting both custom model development and transfer learning methodologies used in contemporary machine learning workflows.*
